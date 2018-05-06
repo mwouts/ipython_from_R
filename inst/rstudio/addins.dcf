@@ -1,0 +1,4 @@
+Name: ipython
+Description: Execute the selected code in IPython
+Binding: ipyexec
+Interactive: true

@@ -1,0 +1,11 @@
+Package: ipython
+Type: Package
+Title: Talk to jupyter/ipython kernels from R
+Version: 0.1.0
+Author: Marc Wouts
+Maintainer: Marc Wouts <marc.wouts@gmail.com>
+Description: Send commands for execution in jupyter kernels, and retrieve the results. The package also offers an engine for knitr.
+License: Apache License 2.0
+Encoding: UTF-8
+LazyData: true
+Suggests: testthat
