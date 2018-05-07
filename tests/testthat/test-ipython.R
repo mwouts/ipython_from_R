@@ -7,7 +7,7 @@ test_that(
     p = ipython(debug=T, message=F)
 
     r = p$exec("a=17")
-    expect_equal(r, character())
+    expect_null(r)
 
     r = p$exec("a+17")
     expect_equal(r, c("```", "34", "```"))
