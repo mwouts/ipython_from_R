@@ -385,8 +385,10 @@ if __name__ == '__main__':
             mploptions.append("matplotlib.rcParams['figure.figsize'] = (%f,%f)" % (
             config.width, config.height))
         if config.imageformat:
-            mploptions.append("""from IPython.display import set_matplotlib_formats
-set_matplotlib_formats('%s')""" % config.imageformat)
+            mploptions.append("from IPython.display import set_matplotlib_formats")
+            mploptions.append("set_matplotlib_formats('%s')" % config.imageformat)
+        # try/catch in case matplotlib is not available
+        mploptions = ['try:'] + ['    {}'.format(i) for i in mploptions] + ['except ImportError:', '    pass']
         r = execute(kc, '\n'.join(mploptions))
         err, result = format_result(r, config)
         if err:
