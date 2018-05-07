@@ -112,6 +112,16 @@ ipython$methods(
       }
     )
 
+    if(!is.null(attr(r, 'status')))
+    {
+      msg <- paste('Error in running command', paste(cmd, collapse=" "))
+      msg <- paste(c(msg, r), collapse='\n')
+      if (is.null(options$error) || !options$error)
+        stop(msg)
+      else
+        warning(msg, immediate. = TRUE, call. = FALSE)
+    }
+
     if(message)
     {
       if(length(r))
