@@ -36,6 +36,7 @@ We start with knitr's setup. In practical cases, you will probably want to set t
 library(ipython)
 knitr::knit_engines$set(ipython = ipython_engine) # define the ipython engine
 # knitr::opts_chunk$set(kernel='existing') # use this if you start the kernel yourself
+# knitr::opts_chunk$set(kernel='kernel-55381.json') # use this if you want to connect to the already existing kernel 55381.
 ```
 
 Now we show a few python computations. Note that only explicit calls to `print`, plus the last line, lead to some output. Again, the input or output could be removed by using knitr's options `include` and `echo`.

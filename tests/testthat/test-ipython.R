@@ -22,6 +22,7 @@ test_that(
     if(Sys.which("jupyter")=="")
       skip('jupyter is not available')
 
+    p = ipython(debug=T, message=F)
     r = p$exec("import matplotlib.pyplot")
     if(!is.null(attr(r, "status")))
       skip('matplotlib is not available')
@@ -31,8 +32,8 @@ test_that(
 
     expect_null(attr(r, "status"))
     expect_equal(length(r),1)
-    expect_true(grepl("^\\!\\[.*\\]\\(fig_path/fig_label_1.png\\)$", r))
-    expect_true(file.exists("fig_path/fig_label_1.png"))
+    expect_true(grepl("^\\!\\[.*\\]\\(fig_path/fig_label-1.png\\)$", r))
+    expect_true(file.exists("fig_path/fig_label-1.png"))
     unlink("fig_path", recursive = TRUE)
   })
 
@@ -40,7 +41,7 @@ test_that(
   'incorrect code throws an error',
   {
     options = list(code = "not correct", eval=TRUE, error=FALSE, results = "asis", echo=FALSE)
-    expect_error(r = ipython_engine(options),
+    expect_error(suppressMessages(suppressWarnings(ipython_engine(options))),
                  "NameError: name 'correct' is not defined")
   })
 
