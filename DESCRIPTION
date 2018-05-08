@@ -8,4 +8,4 @@ Description: Send commands for execution in jupyter kernels, and retrieve the re
 License: Apache License 2.0
 Encoding: UTF-8
 LazyData: true
-Suggests: testthat
+Suggests: testthat, knitr
