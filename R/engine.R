@@ -22,7 +22,7 @@ ipython_engine <- function(options, message=FALSE, debug=TRUE)
   if(options$results == "markup")
     options$results <- "asis"
   # But escape it if it was not and something went wrong
-  else if(options$results == "asis" && is.null(attr(out, 'status')))
+  else if(options$results == "asis" && !is.null(attr(out, 'status')))
     options$results <- "markup"
 
   if(is.null(options$inline) || !options$inline)

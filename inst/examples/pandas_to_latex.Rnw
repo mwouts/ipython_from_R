@@ -1,0 +1,21 @@
+\documentclass{article}
+\usepackage{booktabs}
+
+\begin{document}
+
+<<setup, include=FALSE>>=
+library(ipython)
+knitr::knit_engines$set(ipython = ipython::ipython_engine)
+knitr::knit_engines$set(kernel = 'existing')
+@
+
+<<engine='ipython'>>=
+import pandas as pd
+df = pd.DataFrame({'A':[1,3,2], 'B':[2,1,3]})
+@
+
+<<engine='ipython', results='asis'>>=
+print(df.to_latex())
+@
+
+\end{document}
